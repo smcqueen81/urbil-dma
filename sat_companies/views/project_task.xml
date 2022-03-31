@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_project_task_sat_companies" model="ir.ui.view">
+        <field name="name">inherit.form.project.task</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="arch" type="xml"> 
+            <xpath expr="//form[1]/sheet[1]/notebook[1]" position="inside">
+                <page string="Checklists" name="pag_work_order_tab">
+                  <group name="studio_group_SidLz">
+                        <field name="checklist_ids" options="{'no_create': True, 'no_create_edit':True}"/>
+                    <group name="group_ot_right">
+                        
+                    </group>
+                  </group>
+                </page>
+                <page string="Checklist OCA minute point" name="checklist_page">
+                    <group>
+                        <field name="checklist_line_ids">
+                            <tree editable="botttom">
+                                <field name="minute_point_id" options="{'no_create': True, 'no_create_edit':True}" required="1"/>
+                                <field name="type_deffect_id" required="1"/>
+                                <field name="is_reviewed"/>
+                            </tree>
+                        </field>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>     

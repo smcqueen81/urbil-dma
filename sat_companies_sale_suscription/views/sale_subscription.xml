@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="sale_subscription_inherit_form" model="ir.ui.view">
+        <field name="name">sale.subscription.form.inherit</field>
+        <field name="model">sale.subscription</field>
+        <field name="inherit_id" ref="sale_subscription.sale_subscription_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/group[1]" position="after">
+                <group name="dates_group">
+                    <field name="check_contract_type" invisible="True"/>
+                    <group name="group_left" string="Gadget information">
+                        <field name="product_id" domain = "[('is_gadget','=',True),('partner_id','=',partner_id)]" required="True"/>
+                        <field name="task_user_id"/>
+                        <field name="low_date" invisible="True"/>
+                        <field name="res_partner_low_mto_id" invisible="True"/>
+                        <!--
+                        <label for="date_begin" string="Assignment date" attrs="{'invisible': [('product_id', '=', False)]}"/>
+                        <div class="w-100">
+                            <div class="o_row">
+                                <field name="date_begin" widget="daterange" options="{'related_end_date': 'date_end'}" attrs="{'invisible': [('product_id', '=', False)]}"/>
+                                <i class="fa fa-long-arrow-right mx-2" aria-label="Arrow icon" title="Arrow" attrs="{'invisible': [('product_id', '=', False)]}"/>
+                                <field name="date_end" widget="daterange" options="{'related_start_date': 'date_begin'}" attrs="{'invisible': [('product_id', '=', False)]}"/>
+                            </div>
+                      </div>
+                    -->
+                    </group>
+                    <group name="group_right" string="Information project">
+                        <field name="sale_type_id" options="{'no_create': True, 'no_create_edit':True}" invisible="1"/>
+                        <field name="gadgest_contract_type_id" invisible="1"/>
+                        <field name="pdf_file_sale_contract"/>
+                        <field name="is_extension" attrs="{'invisible': [('is_extension_stage', '!=', True)]}"/>
+                        <field name="is_extension_stage" invisible="1"/>
+                        <field name="is_suspension_stage" invisible="1"/>
+                        <field name="recurring_rule_boundary" invisible="1"/>
+                        <field name="document_ids" widget="many2many_binary" invisible="1"/>
+                        <field name="check_signature" invisible="1"/>
+                        <field name="pdf_file_welcome"/>
+                        <field name="stage_code" invisible="1"/>
+                    </group>
+
+                </group>
+            </xpath>
+
+            <xpath expr="//form[1]/sheet[1]/div[not(@name)][3]/notebook[1]" position="inside">
+                <page string="Contract dates" name="contract_dates_page" invisible="1">
+                  <group>
+                    
+                  </group>
+                </page>
+            </xpath>
+
+            <xpath expr="//header" position="inside">
+                <button name="action_get_attachment"
+                        type="object"
+                        string="Email welcome"/>
+            </xpath>
+            
+            <!--
+            <xpath expr="//form[1]/sheet[1]/div[not(@name)][3]/notebook[1]/page[3]" position="after">
+                <page  string="Customer Signature" name="customer_signature" >
+                    <group>
+                        <field name="signed_by"/>
+                        <field name="signed_on"/>
+                        <field name="signature" widget="image"/>
+                    </group>
+                </page>
+            </xpath>
+            -->
+            <!--
+            <xpath expr="//field[(@name='team_id')]" position="after">
+                <field name="gadget_contract_type" options="{'no_create': True, 'no_create_edit':True}"/>
+                <field name="is_potential_client" invisible="1"/>
+            </xpath>
+            -->
+
+            <xpath expr="//header" position="inside">
+                <button 
+                string="Discontinued"
+                name="button_rejected_stage"
+                type="object"
+                class="btn-primary"
+                attrs="{'invisible': [('stage_code', '=', '1')]}"/>
+            </xpath>
+
+        </field>
+    </record>
+    
+</odoo>     

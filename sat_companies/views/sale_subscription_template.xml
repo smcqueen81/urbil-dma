@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+        <record id="inherit_form_view_sale_subscription_template_sat" model="ir.ui.view">
+            <field name="name">sale.subscription.template.inherit</field>
+            <field name="model">sale.subscription.template</field>
+            <field name="inherit_id" ref="sale_subscription.sale_subscription_template_view_form"/>
+            <field name="arch" type="xml"> 
+                <xpath expr="//form[1]/sheet[1]/notebook[1]" position="inside">
+                    <page string="Contract type" name="contract_type" attrs="{'invisible': [('is_maintenance', '!=', True)]}">
+                      <group name="contract_type_princiapl">
+                        <group name="contract_type_left">
+                            <field name="type_contract" attrs="{'required': [('is_maintenance', '=', True)]}"/>
+                        </group>
+                        <group name="contract_type_right">
+                            
+                        </group>
+                      </group>
+                    </page>
+                </xpath>
+                <xpath expr="//field[(@name='payment_mode')]" position="after">
+                    <field name="is_maintenance"/>
+                </xpath>
+            </field>
+        </record>
+</odoo>     

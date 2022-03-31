@@ -1,0 +1,95 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* processcontrol_payment_mode
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-02 22:36+0000\n"
+"PO-Revision-Date: 2021-12-02 23:40+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 3.0\n"
+
+#. module: processcontrol_payment_mode
+#: model:ir.model.fields.selection,name:processcontrol_payment_mode.selection__account_payment_mode__offsetting_account__bank_account
+msgid "Bank Account"
+msgstr "Cuenta bancaria"
+
+#. module: processcontrol_payment_mode
+#: model:ir.model.fields,field_description:processcontrol_payment_mode.field_account_payment_mode__display_name
+#: model:ir.model.fields,field_description:processcontrol_payment_mode.field_account_payment_order__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: processcontrol_payment_mode
+#: model:ir.model.fields,field_description:processcontrol_payment_mode.field_account_payment_mode__id
+#: model:ir.model.fields,field_description:processcontrol_payment_mode.field_account_payment_order__id
+msgid "ID"
+msgstr "ID"
+
+#. module: processcontrol_payment_mode
+#: model:ir.model.fields,help:processcontrol_payment_mode.field_account_payment_mode__transfer_journal_id
+msgid "Journal to write payment entries when confirming payment/debit orders of this mode"
+msgstr "Diario al que escribir los asientos contables cuando se confirme la orden de cobro/pago de este modo"
+
+#. module: processcontrol_payment_mode
+#: model:ir.model.fields,field_description:processcontrol_payment_mode.field_account_payment_mode____last_update
+#: model:ir.model.fields,field_description:processcontrol_payment_mode.field_account_payment_order____last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: processcontrol_payment_mode
+#: model:ir.model.fields,field_description:processcontrol_payment_mode.field_account_payment_mode__offsetting_account
+msgid "Offsetting Account"
+msgstr "Cuenta de compensación"
+
+#. module: processcontrol_payment_mode
+#: code:addons/processcontrol_payment_mode/models/account_payment_mode.py:0
+#, python-format
+msgid "On the payment mode '%s', you must select a value for the 'Transfer Account'."
+msgstr "En el modo de pago '%s', debe seleccionar un valor para la 'Cuenta de transferencia'."
+
+#. module: processcontrol_payment_mode
+#: code:addons/processcontrol_payment_mode/models/account_payment_mode.py:0
+#, python-format
+msgid "On the payment mode '%s', you must select a value for the 'Transfer Journal'."
+msgstr "En el modo de pago '%s', debe seleccionar un valor para el 'Diario de transferencia'."
+
+#. module: processcontrol_payment_mode
+#: code:addons/processcontrol_payment_mode/models/account_payment_mode.py:0
+#, python-format
+msgid "On the payment mode '%s', you must select an option for the 'Offsetting Account' parameter"
+msgstr "En el modo de pago '%s', debe seleccionar una opción para el parámetro 'Cuenta de compensación'"
+
+#. module: processcontrol_payment_mode
+#: model:ir.model.fields,help:processcontrol_payment_mode.field_account_payment_mode__transfer_account_id
+msgid "Pay off lines in 'file uploaded' payment orders with a move on this account. You can only select accounts that are marked for reconciliation"
+msgstr "Las líneas de pago de la orden se conciliarán en la 'subida de archivo' con un apunte a esta cuenta. Sólo puede seleccionar las cuentas que están marcadas para conciliación"
+
+#. module: processcontrol_payment_mode
+#: model:ir.model,name:processcontrol_payment_mode.model_account_payment_mode
+msgid "Payment Modes"
+msgstr "Modos de pago"
+
+#. module: processcontrol_payment_mode
+#: model:ir.model,name:processcontrol_payment_mode.model_account_payment_order
+msgid "Payment Order"
+msgstr "Orden de pago"
+
+#. module: processcontrol_payment_mode
+#: model:ir.model.fields,field_description:processcontrol_payment_mode.field_account_payment_mode__transfer_account_id
+#: model:ir.model.fields.selection,name:processcontrol_payment_mode.selection__account_payment_mode__offsetting_account__transfer_account
+msgid "Transfer Account"
+msgstr "Cuenta de transferencia"
+
+#. module: processcontrol_payment_mode
+#: model:ir.model.fields,field_description:processcontrol_payment_mode.field_account_payment_mode__transfer_journal_id
+msgid "Transfer Journal"
+msgstr "Diario de transferencia"

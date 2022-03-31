@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>     
+<odoo>
+    <data>
+
+        <record id="view_sale_gadgets_tree" model="ir.ui.view">
+            <field name="name">sale.gadgets.tree</field>
+            <field name="model">sale.gadgets</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <tree string="sale_gadgets_tree">
+                    <field name="code"/>
+                    <field name="partner_id"/>
+                    <field name="domicile"/>
+                    <field name="ref_type"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_sale_gadgets_form" model="ir.ui.view">
+            <field name="name">sale.gadgets.form</field>
+            <field name="model">sale.gadgets</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <form string="sale_gadgets_form">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <table>
+                                    <tr>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="code"/>
+                                <field name="edifice"/>
+                            </group>
+                            <group>
+                                <field name="high_date_call_center"/>
+                            </group>
+                            <group>
+                                <field name="partner_id" options="{'no_create': True, 'no_create_edit':True}"/>
+                                <field name="user_id" options="{'no_create': True, 'no_create_edit':True}"/>
+                            </group>
+                            <group>
+                                
+                            </group>
+                            <group>
+                                <field name="population_id"/>
+                                <field name="location"/>
+                            </group>
+                             <group>
+                                
+                            </group>
+                             <group>
+                                <field name="type_gadget"/>
+                                <field name="use"/>
+                                <field name="state_gadget"/>
+                                <field name="type_contract"/>
+                                <field name="type_assistance"/>
+                            </group>
+                            <group>
+                                <field name="is_priority"/>
+                                <field name="is_full_service"/>
+                                <field name="keys"/>
+                            </group>
+                            <group>
+                                <field name="high_date"/>
+                                <field name="end_guarantee"/>
+                                <field name="start_date_contract"/>
+                                <field name="contract_number"/>
+                            </group>
+                            <group>
+                                <field name="high_mto_company"/>
+                                <field name="end_date_contract"/>
+                                <field name="years_extended"/>
+                                <field name="extended_date"/>
+                            </group>
+                            <group>
+                                <field name="invoice_start_date"/>
+                                <field name="low_date"/>
+                            </group>
+                            <group>
+                                <field name="start_up_date"/>
+                                <field name="low_mto_company"/>
+                            </group>
+                            <group>
+                                <field name="type_increase"/>
+                            </group>
+                            <group>
+                                
+                            </group>
+                            <group>
+                                <field name="billing_period"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_sale_gadgets_search" model="ir.ui.view">                                
+          <field name="name">sale.gadgets.search</field>                                
+          <field name="model">sale.gadgets</field>                                
+          <field name="arch" type="xml">                                    
+            <search string="Search sale gadgets">
+                    <field name="code"/>
+                    <field name="partner_id"/>                                                    
+                    <filter string="Type" domain="[('ref_type', '!=', '')]" name="has_ref_type"></filter>                                                             
+                <group expand="0" string="Group By">                                            
+                    <filter string="Client" name="partner_id" context="{'group_by': 'partner_id'}"></filter>
+                    <filter string="Type" name="ref_type" context="{'group_by': 'ref_type'}"></filter>                                              
+                </group>                                    
+            </search>                                
+          </field>                            
+        </record>
+    
+        <record model="ir.actions.act_window" id="action_view_sale_gadgets">
+            <field name="name">Gadgets</field>
+            <field name="res_model">sale.gadgets</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create new record
+                </p>
+            </field>
+        </record>
+
+        <menuitem 
+            id="menu_sale_gadgets" 
+            name="Gadgets" 
+            parent="stock.menu_stock_config_settings"
+            action="action_view_sale_gadgets"
+            />
+
+    </data>
+</odoo> 

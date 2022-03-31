@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="inherit_view_hr_employee_sat_companies" model="ir.ui.view">
+            <field name="name">hr.employee.form.inherit</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml"> 
+                <xpath expr="//form[1]/sheet[1]/notebook[1]" position="inside">
+                    <page name="operator_file_page" string="Operator file" groups="sat_companies.administrator_teacher_manager_group">
+                      <group name="principal">
+                        <group name="left">
+                            <field name="delegation_id" options="{'no_create': True, 'no_create_edit':True}"/>
+                        </group>
+                        <group name="right">
+                            
+                        </group>
+                        <group>
+                            <field name="delegation_code"/>
+                            <field name="c_accountant"/>
+                        </group>
+                        <group>
+                            
+                        </group>
+                        <group>
+                            <field name="alarm_code"/>
+                        </group>
+                        <group>
+                            
+                        </group>
+                        <group>
+                            <field name="employee_type" options="{'no_create': True, 'no_create_edit':True}"/>
+                            <field name="category_id" options="{'no_create': True, 'no_create_edit':True}"/>
+                        </group>
+                        <group>
+                            
+                        </group>
+                        <group>
+                            <field name="type_driving_license"/>
+                        </group>
+                        <group>
+                            
+                        </group>
+                        <group>
+                            <field name="shirt_size"/>
+                            <field name="shoe_size"/>
+                            <field name="jersey_size"/>
+                            <field name="parka_size"/>
+                        </group>
+                        <group>
+                            <field name="jacket_size"/>
+                            <field name="pants_size"/>
+                            <field name="polo_size"/>
+                            <field name="raincoat_size"/>
+                        </group>
+                        <group>
+                            <field name="pda" widget="boolean_toggle"/>
+                            <field name="online_service" widget="boolean_toggle"/>
+                            <field name="warehouse_id" options="{'no_create': True, 'no_create_edit':True}"/>
+                            <field name="supervisor" widget="boolean_toggle"/>
+                        </group>
+                        <group>
+                            <field name="password"/>
+                            <field name="imei"/>
+                        </group>
+                      </group>
+                    </page>
+                </xpath>
+                <xpath expr="//page[@name='public']" position="attributes">
+                    <attribute name="groups">base.group_system,sat_companies.administrator_teacher_manager_group</attribute>
+                </xpath>
+                <xpath expr="//page[@name='hr_settings']" position="attributes">
+                    <attribute name="groups">hr.group_hr_user,base.group_system</attribute>
+                </xpath>
+                <xpath expr="//page[@name='personal_information']" position="attributes">
+                    <attribute name="groups">hr.group_hr_user,sat_companies.administrator_teacher_manager_group</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>     

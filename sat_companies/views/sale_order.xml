@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="sale_order_tree_view_sat_companies" model="ir.ui.view">
+            <field name="name">sale.order.tree</field>
+            <field name="model">sale.order</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <tree string="list_of_budgets" edit="false" create="false">
+                    <field name="state" invisible="1"/>
+                    <field name="name" string="Budget number"/>
+                    <field name="partner_id" string="Client"/>
+                    <field name="address" string="Address"/>
+                    <field name="population_id"/>
+                    <field name="create_date" string="Budget date"/>
+                    <field name="date_order" string="Confirmation date"/>
+                    <field name="amount_total" string="Amount"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="action_tree_view_sat_companies">
+            <field name="name">List of budgets by business</field>
+            <field name="res_model">sale.order</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="sale_order_tree_view_sat_companies"/>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    List of budgets by business
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_view_tree_Sale_order_sat" 
+        name="List of budgets by business" 
+        parent="sale.menu_sale_report"
+        action="action_tree_view_sat_companies"/>
+</odoo>
+          

@@ -1,0 +1,91 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pc_hr_employee_serki
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-06-03 07:31+0000\n"
+"PO-Revision-Date: 2021-06-03 07:31+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pc_hr_employee_serki
+#: model:ir.model.fields,field_description:pc_hr_employee_serki.field_hr_employee__alarm_code
+msgid "Alarm Code"
+msgstr "Código Alarma"
+
+#. module: pc_hr_employee_serki
+#: model_terms:ir.ui.view,arch_db:pc_hr_employee_serki.hr_employee_view_form
+msgid "Dates"
+msgstr "Fechas"
+
+#. module: pc_hr_employee_serki
+#: model_terms:ir.ui.view,arch_db:pc_hr_employee_serki.hr_employee_view_form
+msgid "Datos Acceso"
+msgstr ""
+
+#. module: pc_hr_employee_serki
+#: model:ir.model.fields,field_description:pc_hr_employee_serki.field_hr_employee__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: pc_hr_employee_serki
+#: model:ir.model,name:pc_hr_employee_serki.model_hr_employee
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: pc_hr_employee_serki
+#: model:ir.model.fields,field_description:pc_hr_employee_serki.field_hr_employee__date_on_work
+msgid "Fecha de Alta"
+msgstr ""
+
+#. module: pc_hr_employee_serki
+#: model:ir.model.fields,field_description:pc_hr_employee_serki.field_hr_employee__id
+msgid "ID"
+msgstr "ID"
+
+#. module: pc_hr_employee_serki
+#: model:ir.model.fields,field_description:pc_hr_employee_serki.field_hr_employee__imei_number
+msgid "Imei Number"
+msgstr "Número de Imei"
+
+#. module: pc_hr_employee_serki
+#: model:ir.model.fields,field_description:pc_hr_employee_serki.field_hr_employee__date_join
+msgid "Join Date"
+msgstr "Fecha incorporación"
+
+#. module: pc_hr_employee_serki
+#: model:ir.model.fields,field_description:pc_hr_employee_serki.field_hr_employee____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: pc_hr_employee_serki
+#: model:ir.model.fields,field_description:pc_hr_employee_serki.field_hr_employee__pda_code
+msgid "PDA Code"
+msgstr "Código PDA"
+
+#. module: pc_hr_employee_serki
+#: model:ir.model.fields,field_description:pc_hr_employee_serki.field_hr_employee__pda_id
+msgid "PDA Id"
+msgstr "ID PDA"
+
+#. module: pc_hr_employee_serki
+#: model:ir.model.fields,field_description:pc_hr_employee_serki.field_hr_employee__ss_number
+msgid "SS Number"
+msgstr "Número de la SS"
+
+#. module: pc_hr_employee_serki
+#: model:ir.model.fields,field_description:pc_hr_employee_serki.field_hr_employee__date_termination
+msgid "Termination Date"
+msgstr "Fecha Fin"
+
+#. module: pc_hr_employee_serki
+#: model:ir.model.fields,field_description:pc_hr_employee_serki.field_hr_employee__vehicle_number
+msgid "Vehicle Number"
+msgstr "Número de matrícula"

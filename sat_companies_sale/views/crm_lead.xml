@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="inherit_view_crm_lead_sat_companies" model="ir.ui.view">
+        <field name="name">crm.lead.form.inherit</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml"> 
+            <xpath expr="//field[(@name='priority')]" position="after">
+                <field name="is_external"/>
+            </xpath>
+            <xpath expr="//field[@name='lost_reason']" position="before">
+                <field name="partner_admin_id" options="{'no_create': True, 'no_create_edit':True}" domain = "[('is_admin','=',True)]"/>
+                <field name="sale_type_id" options="{'no_create': True, 'no_create_edit':True}"/>
+                <field name="oportunity_type_id" options="{'no_create': True, 'no_create_edit':True}"/>
+                <field name="managed_by"/>
+                <field name="quote_date_sent_min"/>
+                <field name="opportunity_days"/>
+                <field name="stage_days"/>
+                <field name="is_validate_days" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>     

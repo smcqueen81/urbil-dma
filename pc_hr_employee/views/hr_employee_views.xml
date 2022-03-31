@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2021 Process Control
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+ -->
+
+<openerp>
+<data>
+
+<record id="hr_employee_view_form" model="ir.ui.view">
+    <field name="name">hr.employee form</field>
+    <field name="model">hr.employee</field>
+    <field name="inherit_id" ref="hr.view_employee_form"/>
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//field[@name='identification_id']" position="before">
+                <field name="ss_number"/>
+            </xpath>
+
+            <xpath expr="//group[@name='work_permit']" position="before">
+             <group string="Dates" name="dates_group">
+                    <field name="date_join"/>
+                    <field name="date_termination"/>
+                    <field name="date_on_work"/>
+                
+            </group>
+            </xpath>
+
+            <xpath expr="//page[@name='hr_settings']" position="inside">
+             <group string="Datos Acceso" name="access_group">
+                    <field name="imei_number"/>
+                    <field name="vehicle_number"/>
+                    <field name="pda_id"/>
+                    <field name="pda_code"/>
+                    <field name="alarm_code"/>
+            </group>
+            </xpath>
+
+
+       
+            
+
+        </data>
+    </field>
+</record>
+
+<!-- <record id="hr_employee_view_search" model="ir.ui.view">
+    <field name="name">hr.employee search</field>
+    <field name="model">hr.employee</field>
+    <field name="inherit_id" ref="hr.view_employee_filter"/>
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//field[@name='category_ids']" position="after">
+                <filter name="filter_terminated" string="Terminated" domain="[('date_termination','!=',False)]"/>
+            </xpath>
+        </data>
+    </field>
+</record> -->
+
+
+</data>
+</openerp>

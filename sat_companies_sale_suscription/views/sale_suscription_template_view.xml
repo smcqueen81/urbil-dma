@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="sale_subscription_template_inherit_form" model="ir.ui.view">
+        <field name="name">sale.subscription.template.inherit.form</field>
+        <field name="model">sale.subscription.template</field>
+        <field name="inherit_id" ref="sale_subscription.sale_subscription_template_view_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//form/sheet/notebook/page/group[1]/group[1]/field[@name='payment_mode']" position="after">
+                <field name="sale_type_id"/>
+                <field name="gadgets_contract_type_id"/>
+                <field name="days_number"/>
+                <field name="days_between_visits"/>
+                <field name="contract_duration"/>
+                <field name="contract_recurring_rule"/>
+            </xpath>
+
+            <xpath expr="//form/sheet/notebook/page/group[1]/group[2]/group[1]/field[@name='code']" position="after">
+                <field name="exclude_months"/>
+                <field name="jan" attrs="{'invisible': [('exclude_months', '=', False)]}"/>
+                <field name="feb" attrs="{'invisible': [('exclude_months', '=', False)]}"/>
+                <field name="mar" attrs="{'invisible': [('exclude_months', '=', False)]}"/>
+                <field name="apr" attrs="{'invisible': [('exclude_months', '=', False)]}"/>
+                <field name="may" attrs="{'invisible': [('exclude_months', '=', False)]}"/>
+                <field name="jun" attrs="{'invisible': [('exclude_months', '=', False)]}"/>
+                <field name="jul" attrs="{'invisible': [('exclude_months', '=', False)]}"/>
+                <field name="aug" attrs="{'invisible': [('exclude_months', '=', False)]}"/>
+                <field name="sep" attrs="{'invisible': [('exclude_months', '=', False)]}"/>
+                <field name="oct" attrs="{'invisible': [('exclude_months', '=', False)]}"/>
+                <field name="nov" attrs="{'invisible': [('exclude_months', '=', False)]}"/>
+                <field name="dec" attrs="{'invisible': [('exclude_months', '=', False)]}"/>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>     

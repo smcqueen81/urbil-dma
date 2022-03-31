@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.invoice.payment.due.notification</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="account.res_config_settings_view_form"/>
+        <!--<field name="inherit_id" ref="account_reports.res_config_settings_view_form"/>-->
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='account_reports_settings']" position="after">
+                <h2 groups="account.group_account_user">Notifications</h2>
+                <div class="row mt16 o_settings_container" id="account_notifications_settings"
+                     groups="account.group_account_user">
+                    <div class="col-12 col-lg-6 o_setting_box" title="This allows you to enable the send of purchase/sale invoice payments due notification.">
+                        <div class="o_setting_left_pane">
+                            <field name="x_invoice_due_notification"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="x_invoice_due_notification"/>
+                            <span class="fa fa-lg fa-building-o" title="Values set here are company-specific." groups="base.group_multi_company"/>
+                            <div class="text-muted">
+                                If checked, enables purchase/sale invoice payment due notification.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_left_pane"/>
+                        <div class="o_setting_right_pane">
+                            <span class="o_form_label">Users</span>
+                            <span class="fa fa-lg fa-building-o" title="Values set here are company-specific." role="img" aria-label="Values set here are company-specific." groups="base.group_multi_company"/>
+                            <div class="text-muted">
+                                Users who will receive the notification.
+                            </div>
+                            <div class="text-muted">
+                                <field name="x_invoice_due_notification_user_ids" widget="many2many_tags" options="{'no_create_edit': True}" attrs="{'invisible':[('x_invoice_due_notification','=',False)]}"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

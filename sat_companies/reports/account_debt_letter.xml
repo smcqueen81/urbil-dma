@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        
+        <template id="report_template_debt_letter">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">                    
+                    <div class="header">
+                        <style>
+                            #t01 td {
+                            border: 1px solid black;
+                            padding: 5px;
+                        </style>
+                        <table class="one" align="left" border="1"  width="50%"> 
+                            <tr> 
+                                <td>
+                                    <p align="justify">
+                                        <img t-att-src="'data:image/png;base64,%s' % to_text(o.company_id.logo)" width="115" height="90"/>
+                                    </p>
+                                </td> 
+                            </tr> 
+                        </table> 
+                        <table class="two" align="right" border="1"  width="40%">
+                            <tr>
+                                <td>
+                                    <span t-field="o.company_id.name"></span><br></br>
+                                    <span t-field="o.company_id.street"></span><br></br>
+                                    <span t-field="o.company_id.phone"></span><br></br>
+                                    <span t-field="o.company_id.email"></span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="article o_report_layout_standard">
+                       <div class="page">
+                        <style>
+                            #t01 td {
+                            border: 1px solid black;
+                            padding: 5px;
+                        </style>
+                        <strong>
+                              <p>
+                                  FACTURAS PENDIENTES DE COBRO
+                              </p>
+                        </strong>
+                        <table class="one" align="left" border="1"  width="50%"> 
+                            <tr> 
+                                <td>
+                                    <strong>Cliente:</strong><br></br>
+                                    <span t-field="o.partner_id.name"></span><br></br>
+                                </td> 
+                            </tr> 
+                        </table> 
+                        <table class="two" align="right" border="1"  width="40%" id="t01">
+                            <tr>
+                                <td>
+                                    <span>Datos administrador</span><br></br>
+                                    <strong><span>AG FINCAS</span></strong><br></br>
+                                    <span>Alvado, N°20</span><br></br>
+                                    <span>03202 ELCHE</span>
+                                </td>
+                            </tr>
+                        </table>
+                        <br></br><br></br>
+                        <table width="100%">
+                            <tr>
+                                <td>
+                                    <p>ELCHE a 22/12/2020</p>
+                                    <p>Muy Sres. nuestros:</p>
+                                    <p>Les comunicamos que está pendiente el pago de las facturas que detallamos a continuación</p>
+                                </td>
+                            </tr>
+                        </table>
+                         <table width="100%" id="t01">
+                            <tr>
+                                <th>Factura</th>
+                                <th>F.Factura</th>
+                                <th>F.Vto</th>
+                                <th>Descripción</th>
+                                <th>Importe</th>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                         </table>
+                       </div>
+                    </div>
+                    <div class="footer">
+                        <p align="justify">
+                            Para cancelar estos importes puede dar conformidad al cobro llamado a nuestras oficinas n° <strong>965422376</strong> o mediante correo electrónico en la cuenta <strong>info@serki.es</strong>
+                        </p>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+        <report
+                id="id_report_template_debt_letter"
+                string="Carta de Impagados"
+                model="account.move"
+                report_type="qweb-pdf"
+                name="sat_companies.report_template_debt_letter"
+        />
+
+    </data>
+</odoo>

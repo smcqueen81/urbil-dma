@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>     
+<odoo>
+    <data>
+
+       <record id="wizard_introdoo" model="ir.ui.view">
+           <field name="name">wizard.introdoo</field>
+           <field name="model">wizard.introdoo</field>
+           <field name="arch" type="xml">
+               <form string="introdoo">
+                   <group>
+                       <group name="company_dates" string="General information about the company">
+                           
+                       </group>
+                       <group>
+                           
+                       </group>
+                       <group>
+                           
+                       </group>
+                       <group>
+                           
+                       </group>
+                       <group>
+                           <field name="date_from"/>
+                       </group>
+                       <group>
+                           <field name="date_to"/>
+                       </group>
+                   </group>
+                   <footer>
+                       
+                        <button string="Cancel"
+                            class="btn-secondary"
+                            special="cancel"/>
+                   </footer>
+               </form>
+           </field>
+       </record>
+
+       <record id="action_menu_wizard" model="ir.actions.act_window">
+           <field name="name">Introdoo</field>
+           <field name="res_model">wizard.introdoo</field>
+           <field name="view_mode">form</field>
+           <field name="view_id" ref="wizard_introdoo"/>
+           <field name="target">new</field>
+       </record>
+
+       <menuitem
+        name="Menu Introdoo"
+        parent="contacts.menu_contacts"
+        id="menu_introdoo"
+        action="action_menu_wizard"/>
+
+    </data>
+</odoo>

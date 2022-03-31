@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_sale_order_inherit_sat_companies_sale" model="ir.ui.view">
+        <field name="name">sale.orderform.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//form/header/button[8]" position="attributes">
+                <attribute name="name">get_task_sale_type</attribute>
+            </xpath>
+
+            <xpath expr="//form/header/button[(@id='action_confirm')]" position="attributes"> 
+                <attribute name="attrs">{}</attribute>
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//form/header/button[8]" position="attributes">
+                <attribute name="attrs">{'invisible':[('is_forecast_made', '=', False)]}</attribute>
+            </xpath>
+
+            <xpath expr="//form/header/button[8]" position="after">
+                <button name="action_get_attachment" type="object" string="Send Email to Contact" invisible="1"/>
+            </xpath>
+
+            <xpath expr="//form/sheet/group[1]/group[2]/field[(@name='payment_term_id')]" position="after"> 
+                <field name="pdf_file_sale_contract"/>
+                <field name="is_forecast_made" groups="sat_companies_sale.sale_forecast_manager_group"/>
+            </xpath>
+
+            <xpath expr="//field[(@name='partner_id')]" position="after"> 
+                <field name="is_create_task" invisible="1"/>
+                <field name="check_product" invisible="1"/>
+                <field name="check_contract_type" invisible="1"/>
+                <field name="sale_type_id" options="{'no_create': True, 'no_create_edit':True}" required="1"/>
+                <field name="quote_date_sent"/>
+            </xpath>
+
+            <xpath expr="//form/sheet/notebook/page[(@name='customer_signature')]" position="after">
+                <page string="Contract" name="type_service_contract">
+                    <group>
+                        <field name="type_service_id">
+                            <tree string="Check type Contract Service" editable="bottom">
+                                <field name="item" readonly="True" force_save="True"/>
+                                <field name="type_service_id"/>
+                            </tree>
+                        </field>
+                    </group>
+                </page>
+            </xpath>
+            <!--
+            <xpath expr="//form/sheet/notebook/page[(@name='order_lines')]/field[1]/tree[1]/field[(@name='product_template_id')]" position="after">
+                <field name="check_is_gadget" invisible="True"/>
+                <field name="rae" attrs="{'invisible': [('check_is_gadget', '!=', True)]}"/>
+                <field name="ref" attrs="{'invisible': [('check_is_gadget', '!=', True)]}"/>
+                <field name="maneuver" attrs="{'invisible': [('check_is_gadget', '!=', True)]}"/>
+                <field name="elevator_type_id" attrs="{'invisible': [('check_is_gadget', '!=', True)]}"/>
+                <field name="people_numbers" attrs="{'invisible': [('check_is_gadget', '!=', True)]}"/>
+                <field name="gadget_load" attrs="{'invisible': [('check_is_gadget', '!=', True)]}"/>
+                <field name="nominal_speed" attrs="{'invisible': [('check_is_gadget', '!=', True)]}"/>
+            </xpath>
+            -->
+
+            <xpath expr="//group[@name='sale_header']" position="after">
+                <group name="dates_group">
+                  <group name="group_left" string="Gadget information">
+                    <field name="product_id" domain = "[('is_gadget','=',True),('partner_id','=',partner_id)]" required="True"/>
+                    <field name="task_user_id" attrs="{'invisible': [('check_product', '!=', True)],'required': [('check_product', '!=', False)]}"/>
+                      <label for="date_begin" string="Assignment date" attrs="{'invisible': [('product_id', '=', False)]}"/>
+                      <div class="w-100">
+                          <div class="o_row">
+                              <field name="date_begin" widget="daterange" options="{'related_end_date': 'date_end'}" attrs="{'invisible': [('product_id', '=', False)]}"/>
+                              <i class="fa fa-long-arrow-right mx-2" aria-label="Arrow icon" title="Arrow" attrs="{'invisible': [('product_id', '=', False)]}"/>
+                              <field name="date_end" widget="daterange" options="{'related_start_date': 'date_begin'}" attrs="{'invisible': [('product_id', '=', False)]}"/>
+                          </div>
+                      </div>
+                  </group>
+                  <group name="group_right">
+                      
+                  </group>
+                </group>
+            </xpath>
+
+        </field> 
+    </record>
+</odoo>

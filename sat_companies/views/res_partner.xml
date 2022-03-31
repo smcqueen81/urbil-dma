@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="inherit_view_res_partner_sat_companies" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[(@name='type')]" position="before">
+                <field name="is_potential_client" widget="boolean_toggle"/>
+                <field name="is_admin" widget="boolean_toggle"  attrs="{'invisible':['|',('company_type','!=','company'),('is_maintainer','=',True)]}"/>
+                <field name="is_maintainer" widget="boolean_toggle" attrs="{'invisible':['|',('company_type','!=','company'),('is_admin','=',True)]}"/>
+                <field name="partner_type_id" options="{'no_create': True, 'no_create_edit':True}" invisible="1"/>
+            </xpath>
+
+            <xpath expr="//form[1]/sheet[1]/notebook[1]" position="inside">
+                <page string="Administrator teacher" name="administrator_page" attrs="{'invisible': [('is_admin', '!=', True)]}" groups="sat_companies.administrator_teacher_manager_group">
+                  <group name="administrator_principal_group">
+                    <group name="adm_left">
+                        <field name="is_admin" widget="boolean_toggle" invisible="1"/>
+                        <field name="code"/>
+                        <field name="high_date"/>
+                        <field name="low_date"/>
+                    </group>
+                    <group name="adm_right">
+                        <field name="delegation_id" options="{'no_create': True, 'no_create_edit':True}"/>
+                        <field name="population_id" options="{'no_create': True, 'no_create_edit':True}"/>
+                        <field name="country_state_id" options="{'no_create': True, 'no_create_edit':True}"/>
+                    </group>
+                    <group>
+                        <field name="partner_type_id" options="{'no_create': True, 'no_create_edit':True}"/>
+                    </group>
+                    <group>
+                        <field name="contact_person"/>
+                        <field name="phone1"/>
+                        <field name="phone2"/>
+                        <field name="phone3"/>
+                        <field name="fax"/>
+                        <field name="email_address"/>
+                    </group>
+                    <group>
+                        <field name="user_partner_contact_id" options="{'no_create': True, 'no_create_edit':True}"/>
+                    </group>
+                    <group>
+                        
+                    </group>
+                    <group>
+                        <field name="percentaje_mto"/>
+                        <field name="percentaje_rep"/>
+                    </group>
+                    <group>
+                        <field name="percentaje_ges_mto" widget="progressbar"/>
+                        <field name="percentaje_ges_rep" widget="progressbar"/>
+                    </group>
+                    <group string="Web consulting">
+                        <field name="user_partner_id" options="{'no_create': True, 'no_create_edit':True}"/>
+                        <field name="password_user"/>
+                    </group>
+                    <group string="Resource calendar">
+                        <field name="resource_calendar_id" options="{'no_create': True, 'no_create_edit':True}"/>
+                    </group>
+                    <field name="observations" placeholder="Add observations..."/>
+                  </group>
+                </page>
+                <page string="Maintainer" name="maintainer_page" attrs="{'invisible': [('is_maintainer', '!=', True)]}" groups="sat_companies.administrator_teacher_manager_group">
+                    <group name="maintainer_group">
+                        <group name="adm_left">
+                            <field name="is_admin" widget="boolean_toggle" invisible="1"/>
+                            <field name="code"/>
+                            <field name="high_date"/>
+                            <field name="low_date"/>
+                        </group>
+                        <group name="adm_right">
+                            <field name="delegation_id" options="{'no_create': True, 'no_create_edit':True}"/>
+                            <field name="population_id" options="{'no_create': True, 'no_create_edit':True}"/>
+                            <field name="country_state_id" options="{'no_create': True, 'no_create_edit':True}"/>
+                        </group>
+                        <group>
+                            <field name="partner_type_id" options="{'no_create': True, 'no_create_edit':True}"/>
+                        </group>
+                        <group>
+                            <field name="contact_person"/>
+                            <field name="phone1"/>
+                            <field name="phone2"/>
+                            <field name="phone3"/>
+                            <field name="fax"/>
+                            <field name="email_address"/>
+                        </group>
+                        <group>
+                            <field name="user_partner_contact_id" options="{'no_create': True, 'no_create_edit':True}"/>
+                        </group>
+                        <group>
+                            
+                        </group>
+                        <group>
+                            <field name="percentaje_mto"/>
+                            <field name="percentaje_rep"/>
+                        </group>
+                        <group>
+                            <field name="percentaje_ges_mto" widget="progressbar"/>
+                            <field name="percentaje_ges_rep" widget="progressbar"/>
+                        </group>
+                        <group string="Web consulting">
+                            <field name="user_partner_id" options="{'no_create': True, 'no_create_edit':True}"/>
+                            <field name="password_user"/>
+                        </group>
+                        <group string="Resource calendar">
+                            <field name="resource_calendar_id" options="{'no_create': True, 'no_create_edit':True}"/>
+                        </group>
+                        <field name="observations" placeholder="Add observations..."/>
+                    </group>
+                </page>
+                <page string="O.C.A" name="oca_page" groups="sat_companies.administrator_teacher_manager_group">
+                    <group>
+                        <group>
+                            <field name="fiscal_name"/>
+                            <field name="fiscal_name2"/>
+                        </group>
+                        <field name="observations_oca" placeholder="Observations"/>
+                    </group>
+                </page>
+            </xpath>
+
+            <xpath expr="//form[1]/sheet[1]/group[1]/group[1]" position="attributes">
+                <attribute name="groups">sat_companies.administrator_teacher_manager_group</attribute>
+            </xpath>
+
+            <xpath expr="//form[1]/sheet[1]/group[1]/group[2]" position="attributes">
+                <attribute name="groups">sat_companies.administrator_teacher_manager_group</attribute>
+            </xpath>
+
+            <xpath expr="//page[@name='contact_addresses']" position="attributes">
+                <attribute name="groups">sat_companies.administrator_teacher_manager_group</attribute>
+            </xpath>
+
+            <xpath expr="//page[@name='sales_purchases']" position="attributes">
+                <attribute name="groups">sat_companies.administrator_teacher_manager_group</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='vat']" position="attributes">
+                <attribute name="attrs">{"required": [["is_potential_client","!=",True]]}</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='bank_ids']" position="attributes">
+                <attribute name="attrs">{"required": [["is_potential_client","!=",True]]}</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='street']" position="attributes">
+                <attribute name="attrs">{"required": [["is_potential_client","!=",True]]}</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='city']" position="attributes">
+                <attribute name="attrs">{"required": [["is_potential_client","!=",True]]}</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='country_id']" position="attributes">
+                <attribute name="attrs">{"required": [["is_potential_client","!=",True]]}</attribute>
+            </xpath>
+
+            <xpath expr="//notebook" position="inside">
+                <page name="comunity_partner" string="Comunities" attrs="{'invisible': [('is_admin', '=', False)]}">
+                    <field name="comunities_ids">
+                        <tree>
+                            <field name="name"/>
+                        </tree>
+                    </field>
+                </page>
+                <page name="comunity_partner" string="Comunities" attrs="{'invisible': [('is_maintainer', '=', False)]}">
+                    <field name="comunities_ids">
+                        <tree>
+                            <field name="name"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+            
+        </field>
+    </record>
+    <record model="ir.ui.view" id="custom_view_res_partner_search">
+            <field name="name">custom.res.partner.search</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <field name="user_id" position="after">
+                    <separator/>
+                    <field name="partner_type_id"/>
+                    <field name="delegation_id"/>
+                    <field name="population_id"/>
+                    <field name="user_partner_contact_id"/>
+                    <field name="is_admin"/>
+                </field>
+            </field>
+    </record>
+</odoo>     
